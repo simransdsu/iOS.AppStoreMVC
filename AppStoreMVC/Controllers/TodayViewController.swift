@@ -7,12 +7,9 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
+class TodayViewController: BaseUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Today"
-
     }
-
 }

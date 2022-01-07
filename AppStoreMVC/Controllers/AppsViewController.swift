@@ -7,13 +7,10 @@
 
 import UIKit
 
-class AppsViewController: UIViewController {
+class AppsViewController: BaseUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Apps"
-        navigationController?.navigationBar.prefersLargeTitles = true
-
     }
-
 }
