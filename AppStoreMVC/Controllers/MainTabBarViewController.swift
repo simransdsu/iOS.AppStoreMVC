@@ -10,8 +10,12 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
     
     
-    @objc override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewControllersWithNavigation()
+    }
+    
+    private func setupViewControllersWithNavigation() {
         
         viewControllers = [
             UINavigationController(
@@ -26,7 +30,6 @@ class MainTabBarViewController: UITabBarController {
                 rootViewController: SearchViewController(with: "Search", tabBarImage: UIImage(systemName: "magnifyingglass"))
             )
         ]
-        
     }
     
 }

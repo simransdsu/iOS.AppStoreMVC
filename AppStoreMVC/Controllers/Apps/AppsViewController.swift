@@ -11,6 +11,5 @@ class AppsViewController: BaseUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Apps"
     }
 }
