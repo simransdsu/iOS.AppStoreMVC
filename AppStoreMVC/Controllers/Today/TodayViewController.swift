@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodayViewController: BaseUIViewController {
+class TodayViewController: BaseTabHostViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: BaseUIViewController {
+class SearchViewController: BaseTabHostViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
