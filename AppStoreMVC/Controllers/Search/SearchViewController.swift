@@ -86,6 +86,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        return .init(width: view.frame.width, height: 250)
+        return .init(width: view.frame.width, height: 350)
     }
 }

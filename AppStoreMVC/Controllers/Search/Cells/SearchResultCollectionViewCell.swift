@@ -54,6 +54,10 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    lazy var screenshotImageView1 = self.createScreenShotImageView()
+    lazy var screenshotImageView2 = self.createScreenShotImageView()
+    lazy var screenshotImageView3 = self.createScreenShotImageView()
+    
     override init(frame: CGRect) {
         
         super.init(frame: frame)
@@ -87,12 +91,30 @@ private extension SearchResultCollectionViewCell {
         labelsStackView.translatesAutoresizingMaskIntoConstraints = false
         labelsStackView.axis = .vertical
         
-        let stackView = UIStackView(arrangedSubviews: [appIconImageView, labelsStackView, getButton])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 12
-        stackView.alignment = .center
+        let infoStackView = UIStackView(arrangedSubviews: [appIconImageView, labelsStackView, getButton])
+        infoStackView.translatesAutoresizingMaskIntoConstraints = false
+        infoStackView.spacing = 12
+        infoStackView.alignment = .center
         
-        addSubview(stackView)
-        stackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+        addSubview(infoStackView)
+        
+        let screenShotsStackView = UIStackView(arrangedSubviews: [screenshotImageView1, screenshotImageView2, screenshotImageView3])
+        screenShotsStackView.distribution = .fillEqually
+        screenShotsStackView.spacing = 10
+        
+        let overAllStackView = UIStackView(arrangedSubviews: [infoStackView, screenShotsStackView])
+        overAllStackView.axis = .vertical
+        overAllStackView.spacing = 12
+        
+        
+        addSubview(overAllStackView)
+        overAllStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+    }
+    
+    func createScreenShotImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.backgroundColor = [.systemIndigo, .systemPink, .systemBlue, .systemGreen, .systemCyan].randomElement()
+        imageView.layer.cornerRadius = 10
+        return imageView
     }
 }
