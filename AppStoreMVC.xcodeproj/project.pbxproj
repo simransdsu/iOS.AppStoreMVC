@@ -16,7 +16,7 @@
 		494EF2512788998300C3A18C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EF2502788998300C3A18C /* TodayViewController.swift */; };
 		494EF2532788998B00C3A18C /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EF2522788998B00C3A18C /* AppsViewController.swift */; };
 		494EF2552788999400C3A18C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EF2542788999400C3A18C /* SearchViewController.swift */; };
-		49D103842788A5EE00E86E06 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D103832788A5EE00E86E06 /* BaseUIViewController.swift */; };
+		49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		494EF2502788998300C3A18C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		494EF2522788998B00C3A18C /* AppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
 		494EF2542788999400C3A18C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		49D103832788A5EE00E86E06 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabHostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 				49942B7D2828341C00830D3F /* Search */,
 				49942B7C2828341800830D3F /* Apps */,
 				49942B7B2828341100830D3F /* Today */,
-				49D103832788A5EE00E86E06 /* BaseUIViewController.swift */,
+				49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */,
 				494EF23A2788988100C3A18C /* MainTabBarViewController.swift */,
 			);
 			path = Controllers;
@@ -226,7 +226,7 @@
 				494EF2512788998300C3A18C /* TodayViewController.swift in Sources */,
 				494EF2532788998B00C3A18C /* AppsViewController.swift in Sources */,
 				494EF23B2788988100C3A18C /* MainTabBarViewController.swift in Sources */,
-				49D103842788A5EE00E86E06 /* BaseUIViewController.swift in Sources */,
+				49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */,
 				494EF2372788988100C3A18C /* AppDelegate.swift in Sources */,
 				494EF2392788988100C3A18C /* SceneDelegate.swift in Sources */,
 			);

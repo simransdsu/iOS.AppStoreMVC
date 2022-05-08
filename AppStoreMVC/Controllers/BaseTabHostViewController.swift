@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseUIViewController: UIViewController {
+class BaseTabHostViewController: UIViewController {
     
     init(with title: String? = nil, tabBarImage: UIImage? = nil) {
         super.init(nibName: nil, bundle: nil)
