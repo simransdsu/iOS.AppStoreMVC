@@ -18,6 +18,7 @@
 		494EF2552788999400C3A18C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EF2542788999400C3A18C /* SearchViewController.swift */; };
 		49942B8128283A5A00830D3F /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B8028283A5A00830D3F /* SearchResultCollectionViewCell.swift */; };
 		49942B852828469A00830D3F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B842828469A00830D3F /* UIView+Extension.swift */; };
+		49942B8728284AD900830D3F /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B8628284AD900830D3F /* VerticalStackView.swift */; };
 		49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		494EF2542788999400C3A18C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		49942B8028283A5A00830D3F /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		49942B842828469A00830D3F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		49942B8628284AD900830D3F /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabHostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				49942B842828469A00830D3F /* UIView+Extension.swift */,
+				49942B8628284AD900830D3F /* VerticalStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */,
 				494EF2372788988100C3A18C /* AppDelegate.swift in Sources */,
 				494EF2392788988100C3A18C /* SceneDelegate.swift in Sources */,
+				49942B8728284AD900830D3F /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
