@@ -17,6 +17,7 @@
 		494EF2532788998B00C3A18C /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EF2522788998B00C3A18C /* AppsViewController.swift */; };
 		494EF2552788999400C3A18C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EF2542788999400C3A18C /* SearchViewController.swift */; };
 		49942B8128283A5A00830D3F /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B8028283A5A00830D3F /* SearchResultCollectionViewCell.swift */; };
+		49942B852828469A00830D3F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B842828469A00830D3F /* UIView+Extension.swift */; };
 		49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		494EF2522788998B00C3A18C /* AppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
 		494EF2542788999400C3A18C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		49942B8028283A5A00830D3F /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		49942B842828469A00830D3F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabHostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 		494EF2352788988100C3A18C /* AppStoreMVC */ = {
 			isa = PBXGroup;
 			children = (
+				49942B832828468700830D3F /* Helpers */,
 				494EF24E2788991E00C3A18C /* Startup */,
 				494EF24D2788991900C3A18C /* Core */,
 				494EF24C2788991400C3A18C /* Controllers */,
@@ -162,6 +165,22 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		49942B822828467800830D3F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				49942B842828469A00830D3F /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		49942B832828468700830D3F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				49942B822828467800830D3F /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +255,7 @@
 				494EF2552788999400C3A18C /* SearchViewController.swift in Sources */,
 				494EF2512788998300C3A18C /* TodayViewController.swift in Sources */,
 				494EF2532788998B00C3A18C /* AppsViewController.swift in Sources */,
+				49942B852828469A00830D3F /* UIView+Extension.swift in Sources */,
 				49942B8128283A5A00830D3F /* SearchResultCollectionViewCell.swift in Sources */,
 				494EF23B2788988100C3A18C /* MainTabBarViewController.swift in Sources */,
 				49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */,

@@ -11,7 +11,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "\(SearchResultCollectionViewCell.self)"
     
-    let imageView: UIImageView = {
+    let appIconImageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .systemRed
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -87,15 +87,12 @@ private extension SearchResultCollectionViewCell {
         labelsStackView.translatesAutoresizingMaskIntoConstraints = false
         labelsStackView.axis = .vertical
         
-        let stackView = UIStackView(arrangedSubviews: [imageView, labelsStackView, getButton])
+        let stackView = UIStackView(arrangedSubviews: [appIconImageView, labelsStackView, getButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 12
-        stackView.alignment = .top
+        stackView.alignment = .center
         
         addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
+        stackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
     }
 }
