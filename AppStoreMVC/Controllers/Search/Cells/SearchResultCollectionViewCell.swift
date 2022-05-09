@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
     
@@ -16,6 +17,8 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         iv.backgroundColor = .systemRed
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.layer.cornerRadius = 10
+        iv.layer.masksToBounds = true
+        iv.contentMode = .scaleAspectFill
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
         iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
         return iv
@@ -79,6 +82,25 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     private func style() {
         
     }
+    
+    func configure(withData data: APIResult) {
+        nameLabel.text = data.trackName
+        categoryLabel.text = data.primaryGenreName
+        ratingsLabel.text = data.formattedPrice
+        appIconImageView.sd_setImage(with: URL(string: data.artworkUrl512))
+        
+        if data.screenshotUrls.count >= 1 {
+            screenshotImageView1.sd_setImage(with: URL(string: data.screenshotUrls[0]))
+        }
+        
+        if data.screenshotUrls.count >= 2 {
+            screenshotImageView2.sd_setImage(with: URL(string: data.screenshotUrls[1]))
+        }
+        
+        if data.screenshotUrls.count >= 3 {
+            screenshotImageView3.sd_setImage(with: URL(string: data.screenshotUrls[2]))
+        }
+    }
 }
 
 
@@ -111,8 +133,8 @@ private extension SearchResultCollectionViewCell {
     
     func createScreenShotImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = [.systemIndigo, .systemPink, .systemBlue, .systemGreen, .systemCyan].randomElement()
         imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
         return imageView
     }
 }

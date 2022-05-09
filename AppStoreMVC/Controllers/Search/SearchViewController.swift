@@ -76,9 +76,7 @@ extension SearchViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCollectionViewCell
         let cellItem = dataSource[indexPath.row]
-        cell.nameLabel.text = cellItem.trackName
-        cell.categoryLabel.text = cellItem.primaryGenreName
-        cell.ratingsLabel.text = cellItem.formattedPrice
+        cell.configure(withData: cellItem)
         return cell
     }
 }
@@ -105,13 +103,17 @@ private extension SearchViewController {
         Task {
             do {
                 let response = try await ITunesService.shared.searchAPI(withTerm: "instagram")
-                DispatchQueue.main.async {
-                    self.dataSource = response.results
-                    self.collectionView.reloadData()
-                }
+                self.updateCollectionViewDataSource(withResult: response.results)
             } catch {
-                print("❌ Failed to fetch apps.", error)
+                handleError(error: error)
             }
+        }
+    }
+    
+    func updateCollectionViewDataSource(withResult results: [APIResult]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource = results
+            self?.collectionView.reloadData()
         }
     }
 }
