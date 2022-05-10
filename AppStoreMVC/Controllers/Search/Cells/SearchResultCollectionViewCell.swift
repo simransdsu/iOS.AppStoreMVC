@@ -51,7 +51,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.backgroundColor = .lightGray
+        button.backgroundColor = .systemGray5
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         button.layer.cornerRadius = 15
         return button
@@ -109,9 +109,11 @@ private extension SearchResultCollectionViewCell {
     
     func setupHorizontalStackViewForAppIconImageLabelsAndGetButton() {
         
+        // StackView for title, category and price
         let labelsStackView = VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel])
         labelsStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        // StackView for the AppIcon, labels, and get button
         let infoStackView = UIStackView(arrangedSubviews: [appIconImageView, labelsStackView, getButton])
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
         infoStackView.spacing = 12
@@ -119,13 +121,14 @@ private extension SearchResultCollectionViewCell {
         
         addSubview(infoStackView)
         
+        // Upto 3 Screenshots in a Stack View
         let screenShotsStackView = UIStackView(arrangedSubviews: [screenshotImageView1, screenshotImageView2, screenshotImageView3])
         screenShotsStackView.distribution = .fillEqually
         screenShotsStackView.spacing = 10
         
+        // StackView that containts the top view and the screenshots
         let overAllStackView = VerticalStackView(arrangedSubviews: [infoStackView, screenShotsStackView])
         overAllStackView.spacing = 12
-        
         
         addSubview(overAllStackView)
         overAllStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
@@ -133,6 +136,7 @@ private extension SearchResultCollectionViewCell {
     
     func createScreenShotImageView() -> UIImageView {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
         return imageView
