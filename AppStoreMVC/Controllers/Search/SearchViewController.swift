@@ -10,7 +10,13 @@ import UIKit
 class SearchViewController: BaseTabHostViewController {
     
     private let cellId = "\(SearchResultCollectionViewCell.self)"
-    private var dataSource = [APIResult]()
+    private var dataSource = [APIResult]() {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+    }
     
     // For Throttling search
     private var timer: Timer?
@@ -151,9 +157,6 @@ private extension SearchViewController {
     
     func updateCollectionViewDataSource(withResult results: [APIResult]) {
         
-        DispatchQueue.main.async { [weak self] in
-            self?.dataSource = results
-            self?.collectionView.reloadData()
-        }
+        self.dataSource = results
     }
 }
