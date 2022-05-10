@@ -12,6 +12,8 @@ class SearchViewController: BaseTabHostViewController {
     private let cellId = "\(SearchResultCollectionViewCell.self)"
     private var dataSource = [APIResult]()
     
+    private var searchController = UISearchController(searchResultsController: nil)
+    
     private var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -39,6 +41,7 @@ class SearchViewController: BaseTabHostViewController {
     private func setup() {
         
         setupCollectionView()
+        setupSearchBar()
     }
 }
 
@@ -59,6 +62,14 @@ private extension SearchViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    func setupSearchBar() {
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        searchController.searchBar.delegate = self
     }
 }
 
@@ -95,14 +106,35 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
+// MARK: - SearchBar Delegate
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        fetchITunesApps(withTerm: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        fetchITunesApps()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        print("\(#function)")
+        fetchITunesApps(withTerm: searchBar.searchTextField.text ?? "")
+    }
+}
+
+
 // MARK: - Helper functions
 private extension SearchViewController {
     
-    func fetchITunesApps() {
+    func fetchITunesApps(withTerm term: String = "instagram") {
         
         Task {
             do {
-                let response = try await ITunesService.shared.searchAPI(withTerm: "instagram")
+                let response = try await ITunesService.shared.searchAPI(withTerm: term)
                 self.updateCollectionViewDataSource(withResult: response.results)
             } catch {
                 handleError(error: error)
@@ -111,6 +143,7 @@ private extension SearchViewController {
     }
     
     func updateCollectionViewDataSource(withResult results: [APIResult]) {
+        
         DispatchQueue.main.async { [weak self] in
             self?.dataSource = results
             self?.collectionView.reloadData()
