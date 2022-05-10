@@ -12,6 +12,9 @@ class SearchViewController: BaseTabHostViewController {
     private let cellId = "\(SearchResultCollectionViewCell.self)"
     private var dataSource = [APIResult]()
     
+    // For Throttling search
+    private var timer: Timer?
+    
     private var searchController = UISearchController(searchResultsController: nil)
     
     private var collectionView: UICollectionView = {
@@ -28,7 +31,6 @@ class SearchViewController: BaseTabHostViewController {
         style()
         layout()
         setup()
-        fetchITunesApps()
     }
     
     private func layout() {
@@ -111,7 +113,12 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        fetchITunesApps(withTerm: searchText)
+        // Invalidating the previous timer
+        timer?.invalidate()
+        // Adding a delay of half a second.
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self] _ in
+            self?.fetchITunesApps(withTerm: searchText)
+        })
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
