@@ -9,7 +9,7 @@ import UIKit
 
 class AppsViewController: BaseTabHostViewController {
 
-    private let cellId = "\(UICollectionViewCell.self)"
+    private let cellId = "\(AppsGroupCell.self)"
     private var dataSource = [String]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -67,7 +67,7 @@ private extension AppsViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppsGroupCell.self.self, forCellWithReuseIdentifier: cellId)
     }
 }
 
@@ -83,8 +83,7 @@ extension AppsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .systemGray6
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
         return cell
     }
 }
