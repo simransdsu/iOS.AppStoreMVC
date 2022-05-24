@@ -9,9 +9,8 @@ import UIKit
 
 class AppsHorizontalController: UIViewController {
     
-    // TODO: Replace with your cell
-    private let cellId = "\(UICollectionViewCell.self)"
-    // TODO: Replace with your data source model
+
+    private let cellId = "\(AppRowCell.self)"
     private var dataSource = [String]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -71,7 +70,7 @@ private extension AppsHorizontalController {
         collectionView.dataSource = self
         collectionView.delegate = self
         // TODO: Replace with your cell
-        collectionView.register(UICollectionViewCell.self.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
     }
 }
 
@@ -86,9 +85,7 @@ extension AppsHorizontalController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // TODO: Replace with your cell dequing logic
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .systemGray6
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
         return cell
     }
 }
@@ -102,12 +99,12 @@ extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
         
         // NOTE: Hard coding the height instead of calculating,
         // as calculated height was breaking and expanding to whole height of view
-        return .init(width: view.frame.width, height: 57.5 )
+        return .init(width: view.frame.width - 48, height: 100 )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
