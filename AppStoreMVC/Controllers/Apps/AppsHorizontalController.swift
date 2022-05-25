@@ -1,15 +1,16 @@
 //
-//  AppsViewController.swift
+//  AppHorizontalController.swift
 //  AppStoreMVC
 //
-//  Created by Simran Preet Narang on 2022-01-07.
+//  Created by Simran Preet Singh Narang on 2022-05-24.
 //
 
 import UIKit
 
-class AppsViewController: BaseTabHostViewController {
+class AppsHorizontalController: UIViewController {
+    
 
-    private let cellId = "\(AppsGroupCell.self)"
+    private let cellId = "\(AppRowCell.self)"
     private var dataSource = [String]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -20,14 +21,17 @@ class AppsViewController: BaseTabHostViewController {
     
     private var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         style()
         layout()
         setup()
@@ -39,20 +43,18 @@ class AppsViewController: BaseTabHostViewController {
         layoutCollectionView()
     }
     
-    private func style() {
-        
-    }
+    private func style() { }
     
     private func setup() {
         
         setupCollectionView()
-        dataSource.append(contentsOf: ["1", "2", "3", "4", "5", "6"])
+        dataSource.append(contentsOf: ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"])
     }
 }
 
 
 // MARK: - UIViews setup
-private extension AppsViewController {
+private extension AppsHorizontalController {
     
     func layoutCollectionView() {
         
@@ -67,13 +69,14 @@ private extension AppsViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(AppsGroupCell.self.self, forCellWithReuseIdentifier: cellId)
+        // TODO: Replace with your cell
+        collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
     }
 }
 
 
 // MARK: - CollectionView Data Source
-extension AppsViewController: UICollectionViewDataSource {
+extension AppsHorizontalController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -82,21 +85,29 @@ extension AppsViewController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
         return cell
     }
 }
 
 
 // MARK: - CollectionView Delegate Flow Layout
-extension AppsViewController: UICollectionViewDelegateFlowLayout {
-    
+extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        // NOTE: Hard coding the height instead of calculating,
+        // as calculated height was breaking and expanding to whole height of view
+        return .init(width: view.frame.width - 48, height: 100 )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return .init(width: view.frame.width, height: 380)
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
     }
 }
