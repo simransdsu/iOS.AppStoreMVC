@@ -27,20 +27,23 @@ class AppsGroupCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(groupTitle: String, dataSource: [String]) {
+        titleLabel.text = groupTitle
+        horizontalController.dataSource = dataSource
+    }
+    
     private func layout() {
         
     }
     
     private func style() {
         
-        backgroundColor = .systemGray6
-        
         addSubview(titleLabel)
         titleLabel.anchor(top: topAnchor,
                           leading: leadingAnchor,
                           bottom: nil,
-                          trailing: trailingAnchor)
-        titleLabel.backgroundColor = .systemGray5
+                          trailing: trailingAnchor,
+                          padding: .init(top: 0, left: 16, bottom: 0, right: 0))
         
         addSubview(horizontalController.view)
         horizontalController.view.backgroundColor = .systemBlue

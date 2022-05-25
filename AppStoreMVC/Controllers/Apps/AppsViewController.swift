@@ -10,7 +10,8 @@ import UIKit
 class AppsViewController: BaseTabHostViewController {
 
     private let cellId = "\(AppsGroupCell.self)"
-    private var dataSource = [String]() {
+    private let headerId = "\(AppsHeaderReusableView.self)"
+    private var dataSource = [String: [String]]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -46,7 +47,12 @@ class AppsViewController: BaseTabHostViewController {
     private func setup() {
         
         setupCollectionView()
-        dataSource.append(contentsOf: ["1", "2", "3", "4", "5", "6"])
+        dataSource = [
+            "Top Free Apps": ["Facebook", "Twitter", "Instagram", "WhatsApp", "lululemon", "Amazon", "Dropbox", "Notefy"],
+            "Top Paid Apps": ["Adobe Premiure", "Final Cut Pro", "Adobe Photoshop", "CameraX", "Netflix", "Spotify"],
+            "Top Games": ["Clash Royale", "Pokemon Go", "Paterned", "Mario Kart", "Stumble Guys", "Barberian Merge"],
+            "Most downloaded": ["Microsoft Authenticator", "Facebook", "Outlook", "lululemon", "Spotify"],
+        ]
     }
 }
 
@@ -67,7 +73,8 @@ private extension AppsViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(AppsGroupCell.self.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppsHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
 }
 
@@ -77,13 +84,25 @@ extension AppsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return dataSource.count
+        return dataSource.keys.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsHeaderReusableView
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return .init(width: view.frame.width - 42, height: 350)
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
+        cell.configure(groupTitle: Array(dataSource.keys)[indexPath.row],
+                       dataSource: dataSource[Array(dataSource.keys)[indexPath.row]] ?? [])
         return cell
     }
 }
@@ -96,7 +115,6 @@ extension AppsViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
-        return .init(width: view.frame.width, height: 380)
+        return .init(width: view.frame.width, height: 390)
     }
 }
