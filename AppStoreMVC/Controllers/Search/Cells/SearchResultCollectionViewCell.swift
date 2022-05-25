@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
     
@@ -16,6 +17,8 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         iv.backgroundColor = .systemRed
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.layer.cornerRadius = 10
+        iv.layer.masksToBounds = true
+        iv.contentMode = .scaleAspectFill
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
         iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
         return iv
@@ -48,7 +51,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.backgroundColor = .lightGray
+        button.backgroundColor = .systemGray5
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         button.layer.cornerRadius = 15
         return button
@@ -79,6 +82,25 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     private func style() {
         
     }
+    
+    func configure(withData data: APIResult) {
+        nameLabel.text = data.trackName
+        categoryLabel.text = data.primaryGenreName
+        ratingsLabel.text = data.formattedPrice
+        appIconImageView.sd_setImage(with: URL(string: data.artworkUrl512))
+        
+        if data.screenshotUrls.count >= 1 {
+            screenshotImageView1.sd_setImage(with: URL(string: data.screenshotUrls[0]))
+        }
+        
+        if data.screenshotUrls.count >= 2 {
+            screenshotImageView2.sd_setImage(with: URL(string: data.screenshotUrls[1]))
+        }
+        
+        if data.screenshotUrls.count >= 3 {
+            screenshotImageView3.sd_setImage(with: URL(string: data.screenshotUrls[2]))
+        }
+    }
 }
 
 
@@ -87,9 +109,11 @@ private extension SearchResultCollectionViewCell {
     
     func setupHorizontalStackViewForAppIconImageLabelsAndGetButton() {
         
+        // StackView for title, category and price
         let labelsStackView = VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel])
         labelsStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        // StackView for the AppIcon, labels, and get button
         let infoStackView = UIStackView(arrangedSubviews: [appIconImageView, labelsStackView, getButton])
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
         infoStackView.spacing = 12
@@ -97,13 +121,14 @@ private extension SearchResultCollectionViewCell {
         
         addSubview(infoStackView)
         
+        // Upto 3 Screenshots in a Stack View
         let screenShotsStackView = UIStackView(arrangedSubviews: [screenshotImageView1, screenshotImageView2, screenshotImageView3])
         screenShotsStackView.distribution = .fillEqually
         screenShotsStackView.spacing = 10
         
+        // StackView that containts the top view and the screenshots
         let overAllStackView = VerticalStackView(arrangedSubviews: [infoStackView, screenShotsStackView])
         overAllStackView.spacing = 12
-        
         
         addSubview(overAllStackView)
         overAllStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
@@ -111,8 +136,9 @@ private extension SearchResultCollectionViewCell {
     
     func createScreenShotImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = [.systemIndigo, .systemPink, .systemBlue, .systemGreen, .systemCyan].randomElement()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
         return imageView
     }
 }

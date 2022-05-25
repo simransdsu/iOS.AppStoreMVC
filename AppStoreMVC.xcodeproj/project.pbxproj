@@ -20,6 +20,10 @@
 		49942B852828469A00830D3F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B842828469A00830D3F /* UIView+Extension.swift */; };
 		49942B8728284AD900830D3F /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B8628284AD900830D3F /* VerticalStackView.swift */; };
 		49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */; };
+		49E5E9BB28295ADA00489E83 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5E9BA28295ADA00489E83 /* SearchResult.swift */; };
+		49E5E9BD28295CEB00489E83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5E9BC28295CEB00489E83 /* NetworkManager.swift */; };
+		49E5E9BF28295DAB00489E83 /* ITunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5E9BE28295DAB00489E83 /* ITunesService.swift */; };
+		49E5E9C2282962F300489E83 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 49E5E9C1282962F300489E83 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,9 @@
 		49942B842828469A00830D3F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		49942B8628284AD900830D3F /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabHostViewController.swift; sourceTree = "<group>"; };
+		49E5E9BA28295ADA00489E83 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		49E5E9BC28295CEB00489E83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		49E5E9BE28295DAB00489E83 /* ITunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E5E9C2282962F300489E83 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,23 +78,16 @@
 		494EF2352788988100C3A18C /* AppStoreMVC */ = {
 			isa = PBXGroup;
 			children = (
+				49E5E9B928295AC500489E83 /* Models */,
 				49942B832828468700830D3F /* Helpers */,
 				494EF24E2788991E00C3A18C /* Startup */,
 				494EF24D2788991900C3A18C /* Core */,
 				494EF24C2788991400C3A18C /* Controllers */,
 				494EF24B2788990F00C3A18C /* Views */,
-				494EF24A2788990A00C3A18C /* Models */,
 				494EF23F2788988200C3A18C /* Assets.xcassets */,
 				494EF2442788988200C3A18C /* Info.plist */,
 			);
 			path = AppStoreMVC;
-			sourceTree = "<group>";
-		};
-		494EF24A2788990A00C3A18C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		494EF24B2788990F00C3A18C /* Views */ = {
@@ -112,6 +113,8 @@
 		494EF24D2788991900C3A18C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				49E5E9BC28295CEB00489E83 /* NetworkManager.swift */,
+				49E5E9BE28295DAB00489E83 /* ITunesService.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -184,6 +187,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		49E5E9B928295AC500489E83 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49E5E9BA28295ADA00489E83 /* SearchResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,6 +211,9 @@
 			dependencies = (
 			);
 			name = AppStoreMVC;
+			packageProductDependencies = (
+				49E5E9C1282962F300489E83 /* SDWebImage */,
+			);
 			productName = AppStoreMVC;
 			productReference = 494EF2332788988100C3A18C /* AppStoreMVC.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 494EF22A2788988100C3A18C;
+			packageReferences = (
+				49E5E9C0282962F300489E83 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 494EF2342788988100C3A18C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -255,12 +272,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E5E9BD28295CEB00489E83 /* NetworkManager.swift in Sources */,
+				49E5E9BB28295ADA00489E83 /* SearchResult.swift in Sources */,
 				494EF2552788999400C3A18C /* SearchViewController.swift in Sources */,
 				494EF2512788998300C3A18C /* TodayViewController.swift in Sources */,
 				494EF2532788998B00C3A18C /* AppsViewController.swift in Sources */,
 				49942B852828469A00830D3F /* UIView+Extension.swift in Sources */,
 				49942B8128283A5A00830D3F /* SearchResultCollectionViewCell.swift in Sources */,
 				494EF23B2788988100C3A18C /* MainTabBarViewController.swift in Sources */,
+				49E5E9BF28295DAB00489E83 /* ITunesService.swift in Sources */,
 				49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */,
 				494EF2372788988100C3A18C /* AppDelegate.swift in Sources */,
 				494EF2392788988100C3A18C /* SceneDelegate.swift in Sources */,
@@ -484,6 +504,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49E5E9C0282962F300489E83 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49E5E9C1282962F300489E83 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49E5E9C0282962F300489E83 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 494EF22B2788988100C3A18C /* Project object */;
 }

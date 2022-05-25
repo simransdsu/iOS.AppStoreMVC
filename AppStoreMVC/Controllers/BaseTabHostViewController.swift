@@ -26,4 +26,44 @@ class BaseTabHostViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
 
+    func showErrorAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alertController, animated: true)
+    }
+    
+    func handleError(error: Error) {
+        print("❌", error.localizedDescription)
+        print("❌ ❌", error)
+        if let apiError = error as? APIError {
+            handleAPIError(apiError)
+            return
+        }
+        handleGenericError(error)
+    }
+    
+    private func handleAPIError(_ apiError: APIError) {
+        switch(apiError) {
+            
+        case .non200Response(let httpResponse):
+            handleHttpResponseError(httpResponse: httpResponse)
+        case .invalidUrl(_):
+            showErrorAlert(title: "❌ Error", message: "Something went wrong, please try again.")
+        }
+    }
+    
+    private func handleHttpResponseError(httpResponse: HTTPURLResponse?) {
+        switch(httpResponse?.statusCode ?? 500)  {
+        case 300..<399:
+            showErrorAlert(title: "❌ Error", message: "Thing you are trying to find have moved on. Please try again.")
+        case 400..<499:
+            showErrorAlert(title: "❌ Error", message: "Invalid request. Please try again.")
+        default:
+            showErrorAlert(title: "❌ Error", message: "Something went terribly wrong on our side. Please try again after some time")
+        }
+    }
+    
+    private func handleGenericError(_ error: Error) {
+        showErrorAlert(title: "❌ Error", message: "\(error.localizedDescription) Please try again after some time")
+    }
 }

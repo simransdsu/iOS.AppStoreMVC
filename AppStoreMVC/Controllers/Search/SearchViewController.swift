@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: BaseTabHostViewController {
     
     private let cellId = "\(SearchResultCollectionViewCell.self)"
+    private var dataSource = [APIResult]()
     
     private var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -25,6 +26,7 @@ class SearchViewController: BaseTabHostViewController {
         style()
         layout()
         setup()
+        fetchITunesApps()
     }
     
     private func layout() {
@@ -66,13 +68,15 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 5
+        return dataSource.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCollectionViewCell
+        let cellItem = dataSource[indexPath.row]
+        cell.configure(withData: cellItem)
         return cell
     }
 }
@@ -87,5 +91,29 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         
         
         return .init(width: view.frame.width, height: 350)
+    }
+}
+
+
+// MARK: - Helper functions
+private extension SearchViewController {
+    
+    func fetchITunesApps() {
+        
+        Task {
+            do {
+                let response = try await ITunesService.shared.searchAPI(withTerm: "instagram")
+                self.updateCollectionViewDataSource(withResult: response.results)
+            } catch {
+                handleError(error: error)
+            }
+        }
+    }
+    
+    func updateCollectionViewDataSource(withResult results: [APIResult]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource = results
+            self?.collectionView.reloadData()
+        }
     }
 }
