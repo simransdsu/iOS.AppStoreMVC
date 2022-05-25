@@ -1,17 +1,18 @@
 //
-//  AppHorizontalController.swift
+//  AppsHeaderHorizontalController.swift
 //  AppStoreMVC
 //
-//  Created by Simran Preet Singh Narang on 2022-05-24.
+//  Created by Simran Preet Narang on 2022-05-25.
 //
 
 import UIKit
 
-class AppsHorizontalController: UIViewController {
+class AppsHeaderHorizontalContainer: UIViewController {
     
-
-    private let cellId = "\(AppRowCell.self)"
-    var dataSource = [String]() {
+    // TODO: Replace with your cell
+    private let cellId = "\(AppsHeaderHorizontalCell.self)"
+    // TODO: Replace with your data source model
+    private var dataSource = [String]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -43,18 +44,20 @@ class AppsHorizontalController: UIViewController {
         layoutCollectionView()
     }
     
-    private func style() { }
+    private func style() {
+        
+    }
     
     private func setup() {
         
         setupCollectionView()
-//        dataSource.append(contentsOf: ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"])
+        dataSource.append(contentsOf: ["", "", "", ""])
     }
 }
 
 
 // MARK: - UIViews setup
-private extension AppsHorizontalController {
+private extension AppsHeaderHorizontalContainer {
     
     func layoutCollectionView() {
         
@@ -70,13 +73,13 @@ private extension AppsHorizontalController {
         collectionView.dataSource = self
         collectionView.delegate = self
         // TODO: Replace with your cell
-        collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppsHeaderHorizontalCell.self.self, forCellWithReuseIdentifier: cellId)
     }
 }
 
 
 // MARK: - CollectionView Data Source
-extension AppsHorizontalController: UICollectionViewDataSource {
+extension AppsHeaderHorizontalContainer: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -85,30 +88,21 @@ extension AppsHorizontalController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
-        cell.nameLabel.text = dataSource[indexPath.row]
+        // TODO: Replace with your cell dequing logic
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderHorizontalCell
         return cell
     }
 }
 
 
 // MARK: - CollectionView Delegate Flow Layout
-extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
+extension AppsHeaderHorizontalContainer: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        // NOTE: Hard coding the height instead of calculating,
-        // as calculated height was breaking and expanding to whole height of view
-        return .init(width: view.frame.width - 48, height: 105 )
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        return .init(width: view.frame.width - 42, height: 275)
     }
 }

@@ -22,15 +22,15 @@ class AppRowCell: UICollectionViewCell {
     }()
     
     let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "APP_NAME"
+        let label = UILabel(text: "App Name", font: .boldSystemFont(ofSize: 17))
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Company Name"
+        let label = UILabel(text: "Company Name", font: .systemFont(ofSize: 14))
+        label.textColor = .systemGray2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -99,6 +99,6 @@ class AppRowCell: UICollectionViewCell {
         let overAllStackView = VerticalStackView(arrangedSubviews: [infoStackView])
         
         addSubview(overAllStackView)
-        overAllStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+        overAllStackView.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
     }
 }
