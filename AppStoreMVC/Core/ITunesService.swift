@@ -14,7 +14,7 @@ class ITunesService {
     static let shared = ITunesService()
     
     func searchAPI(withTerm term: String) async throws -> SearchResult {
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+        let urlString = "https://itunes.apple.com/search?term=\(term)&entity=software".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         guard let url = URL(string: urlString) else {
             throw APIError.invalidUrl("❌ \(urlString) is invalid")
         }
