@@ -25,7 +25,7 @@ class AppsHeaderHorizontalCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .red
+        image.backgroundColor = .systemGray5
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 10
         image.layer.masksToBounds = true
