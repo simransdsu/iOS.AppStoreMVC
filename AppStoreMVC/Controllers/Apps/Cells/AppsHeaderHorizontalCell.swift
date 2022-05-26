@@ -16,9 +16,8 @@ class AppsHeaderHorizontalCell: UICollectionViewCell {
     }()
     
     private let subtitle: UILabel = {
-        let label = UILabel()
+        let label = UILabel(text: "<_Subtitle_>", font: .boldSystemFont(ofSize: 18))
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "<_Subtitle_><_Subtitle_><_Subtitle_><_Subtitle_><_Subtitle_><_Subtitle_>"
         label.numberOfLines = 2
         return label
     }()
@@ -27,6 +26,7 @@ class AppsHeaderHorizontalCell: UICollectionViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .red
+        image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 10
         image.layer.masksToBounds = true
         image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 16/9).isActive = true
@@ -59,10 +59,16 @@ class AppsHeaderHorizontalCell: UICollectionViewCell {
     private func style() {
         
         layer.cornerRadius = 10
-//        layer.masksToBounds = true
     }
     
     private func setup() {
         
+    }
+    
+    func configure(header: Header) {
+        
+        title.text = header.name
+        subtitle.text = header.tagline
+        imageView.sd_setImage(with: URL(string: header.imageUrl))
     }
 }

@@ -10,6 +10,13 @@ import UIKit
 class AppsHeaderReusableView: UICollectionReusableView {
     
     let appheaderHorizontalController = AppsHeaderHorizontalContainer()
+    private var headers: [Header]? {
+        didSet {
+            if let headers = headers {
+                appheaderHorizontalController.configure(headers: headers)
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         
@@ -38,5 +45,9 @@ class AppsHeaderReusableView: UICollectionReusableView {
     private func setup() {
         
         
+    }
+    
+    func configure(headers: [Header]) {
+        self.headers = headers
     }
 }

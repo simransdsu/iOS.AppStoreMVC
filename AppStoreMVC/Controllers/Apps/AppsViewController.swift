@@ -11,6 +11,13 @@ class AppsViewController: BaseTabHostViewController {
 
     private let cellId = "\(AppsGroupCell.self)"
     private let headerId = "\(AppsHeaderReusableView.self)"
+    private var headersDataSource = [Header]() {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+    }
     private var dataSource = [AppsGroup]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -85,6 +92,7 @@ extension AppsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsHeaderReusableView
+        header.configure(headers: headersDataSource)
         return header
     }
     
@@ -120,6 +128,7 @@ private extension AppsViewController {
         
         Task {
             do {
+                headersDataSource = try await ITunesService.shared.fetchHeaders()
                 async let topApps =  ITunesService.shared.fetchTopApps()
                 async let topProductivityApps = ITunesService.shared.fetchTopProductivityApps()
                 async let topUtilityApps =  ITunesService.shared.fetchTopUtilityApps()

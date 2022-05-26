@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchResult: Decodable {
+struct SearchResultAPI: Decodable {
     let resultCount: Int
     let results: [App]
 }

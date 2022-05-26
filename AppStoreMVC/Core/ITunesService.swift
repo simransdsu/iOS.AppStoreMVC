@@ -13,31 +13,37 @@ class ITunesService {
     
     static let shared = ITunesService()
     
-    func searchAPI(withTerm term: String) async throws -> SearchResult {
+    func searchAPI(withTerm term: String) async throws -> SearchResultAPI {
         let urlString = "https://itunes.apple.com/search?term=\(term)&entity=software".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return try await call(endpoint: urlString)
     }
     
-    func fetchTopApps() async throws -> SearchResult {
+    func fetchTopApps() async throws -> SearchResultAPI {
         
         let urlString = "https://itunes.apple.com/search?term=top apps&entity=software".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return try await call(endpoint: urlString)
     }
     
-    func fetchTopProductivityApps() async throws -> SearchResult {
+    func fetchTopProductivityApps() async throws -> SearchResultAPI {
         
         let urlString = "https://itunes.apple.com/search?term=productivity&entity=software".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return try await call(endpoint: urlString)
     }
     
-    func fetchTopUtilityApps() async throws -> SearchResult {
+    func fetchTopUtilityApps() async throws -> SearchResultAPI {
         
         let urlString = "https://itunes.apple.com/search?term=utility&entity=software".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return try await call(endpoint: urlString)
     }
     
+    func fetchHeaders() async throws -> [Header] {
+        
+        let urlString = "https://api.letsbuildthatapp.com/appstore/social".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        return try await call(endpoint: urlString)
+    }
     
-    private func call(endpoint: String) async throws -> SearchResult {
+    
+    private func call<T: Decodable>(endpoint: String) async throws -> T {
         
         guard let url = URL(string: endpoint) else {
             throw APIError.invalidUrl("❌ \(endpoint) is invalid")
@@ -45,7 +51,7 @@ class ITunesService {
         
         let responseData = try await NetworkManager.shared.fetch(withUrl: url)
         let jsonDecoder = JSONDecoder()
-        let searchResponse = try jsonDecoder.decode(SearchResult.self, from: responseData)
-        return searchResponse
+        let response = try jsonDecoder.decode(T.self, from: responseData)
+        return response
     }
 }

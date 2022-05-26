@@ -12,7 +12,7 @@ class AppsHeaderHorizontalContainer: UIViewController {
     // TODO: Replace with your cell
     private let cellId = "\(AppsHeaderHorizontalCell.self)"
     // TODO: Replace with your data source model
-    private var dataSource = [String]() {
+    private var dataSource = [Header]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -51,7 +51,10 @@ class AppsHeaderHorizontalContainer: UIViewController {
     private func setup() {
         
         setupCollectionView()
-        dataSource.append(contentsOf: ["", "", "", ""])
+    }
+    
+    func configure(headers: [Header]) {
+        dataSource = headers
     }
 }
 
@@ -90,6 +93,7 @@ extension AppsHeaderHorizontalContainer: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // TODO: Replace with your cell dequing logic
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderHorizontalCell
+        cell.configure(header: dataSource[indexPath.row])
         return cell
     }
 }
