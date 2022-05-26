@@ -79,7 +79,7 @@ extension AppsHorizontalController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return dataSource.count
+        return dataSource.count > 20 ? 20 : dataSource.count
     }
     
     
