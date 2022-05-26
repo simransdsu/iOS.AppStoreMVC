@@ -11,7 +11,7 @@ class AppsHorizontalController: UIViewController {
     
 
     private let cellId = "\(AppRowCell.self)"
-    var dataSource = [App]() {
+    var dataSource = [AppModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()

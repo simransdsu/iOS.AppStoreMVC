@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchResultAPI: Decodable {
+struct SearchAPIModel: Decodable {
     let resultCount: Int
-    let results: [App]
+    let results: [AppModel]
 }

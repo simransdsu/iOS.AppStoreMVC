@@ -65,7 +65,7 @@ class AppsHeaderHorizontalCell: UICollectionViewCell {
         
     }
     
-    func configure(header: Header) {
+    func configure(header: HeaderModel) {
         
         title.text = header.name
         subtitle.text = header.tagline

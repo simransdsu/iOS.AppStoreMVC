@@ -13,30 +13,30 @@ class ITunesService {
     
     static let shared = ITunesService()
     
-    func searchAPI(withTerm term: String) async throws -> SearchResultAPI {
+    func searchAPI(withTerm term: String) async throws -> SearchAPIModel {
         let urlString = "https://itunes.apple.com/search?term=\(term)&entity=software"
         return try await call(endpoint: urlString)
     }
     
-    func fetchTopApps() async throws -> SearchResultAPI {
+    func fetchTopApps() async throws -> SearchAPIModel {
         
         let urlString = "https://itunes.apple.com/search?term=top apps&entity=software"
         return try await call(endpoint: urlString)
     }
     
-    func fetchTopProductivityApps() async throws -> SearchResultAPI {
+    func fetchTopProductivityApps() async throws -> SearchAPIModel {
         
         let urlString = "https://itunes.apple.com/search?term=productivity&entity=software"
         return try await call(endpoint: urlString)
     }
     
-    func fetchTopUtilityApps() async throws -> SearchResultAPI {
+    func fetchTopUtilityApps() async throws -> SearchAPIModel {
         
         let urlString = "https://itunes.apple.com/search?term=utility&entity=software"
         return try await call(endpoint: urlString)
     }
     
-    func fetchHeaders() async throws -> [Header] {
+    func fetchHeaders() async throws -> [HeaderModel] {
         
         let urlString = "https://api.letsbuildthatapp.com/appstore/social"
         return try await call(endpoint: urlString)

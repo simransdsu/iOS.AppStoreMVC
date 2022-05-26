@@ -12,7 +12,7 @@ class AppsHeaderHorizontalContainer: UIViewController {
     // TODO: Replace with your cell
     private let cellId = "\(AppsHeaderHorizontalCell.self)"
     // TODO: Replace with your data source model
-    private var dataSource = [Header]() {
+    private var dataSource = [HeaderModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -53,7 +53,7 @@ class AppsHeaderHorizontalContainer: UIViewController {
         setupCollectionView()
     }
     
-    func configure(headers: [Header]) {
+    func configure(headers: [HeaderModel]) {
         dataSource = headers
     }
 }

@@ -27,7 +27,7 @@ class AppsGroupCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with appGroup: AppsGroup) {
+    func configure(with appGroup: AppsGroupModel) {
         titleLabel.text = appGroup.title
         horizontalController.dataSource = appGroup.apps
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Header: Decodable {
+struct HeaderModel: Decodable {
     
     let id: String
     let name: String

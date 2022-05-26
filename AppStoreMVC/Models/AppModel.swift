@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct App: Decodable {
+struct AppModel: Decodable {
     
     let screenshotUrls: [String]
     let artworkUrl512: String

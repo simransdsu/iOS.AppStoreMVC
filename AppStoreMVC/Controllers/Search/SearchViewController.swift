@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: BaseTabHostViewController {
     
     private let cellId = "\(SearchResultCollectionViewCell.self)"
-    private var dataSource = [App]() {
+    private var dataSource = [AppModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -155,7 +155,7 @@ private extension SearchViewController {
         }
     }
     
-    func updateCollectionViewDataSource(withResult results: [App]) {
+    func updateCollectionViewDataSource(withResult results: [AppModel]) {
         
         self.dataSource = results
     }

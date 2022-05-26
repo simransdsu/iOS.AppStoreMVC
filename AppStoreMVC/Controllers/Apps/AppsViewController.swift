@@ -11,14 +11,14 @@ class AppsViewController: BaseTabHostViewController {
 
     private let cellId = "\(AppsGroupCell.self)"
     private let headerId = "\(AppsHeaderReusableView.self)"
-    private var headersDataSource = [Header]() {
+    private var headersDataSource = [HeaderModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
             }
         }
     }
-    private var dataSource = [AppsGroup]() {
+    private var dataSource = [AppsGroupModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -134,9 +134,9 @@ private extension AppsViewController {
                 async let topUtilityApps =  ITunesService.shared.fetchTopUtilityApps()
                 
                 let resultDataSource = [
-                    AppsGroup(title: "Top Apps", apps: try await topApps.results),
-                    AppsGroup(title: "Top Productivity apps", apps: try await topProductivityApps.results),
-                    AppsGroup(title: "Top Utility apps", apps: try await topUtilityApps.results),
+                    AppsGroupModel(title: "Top Apps", apps: try await topApps.results),
+                    AppsGroupModel(title: "Top Productivity apps", apps: try await topProductivityApps.results),
+                    AppsGroupModel(title: "Top Utility apps", apps: try await topUtilityApps.results),
                 ]
                 updateCollectionViewDataSource(withResult: resultDataSource)
             } catch {
@@ -146,14 +146,8 @@ private extension AppsViewController {
     }
     
     
-    func updateCollectionViewDataSource(withResult results: [AppsGroup]) {
+    func updateCollectionViewDataSource(withResult results: [AppsGroupModel]) {
         
         self.dataSource = results
     }
-}
-
-
-struct AppsGroup: Decodable {
-    let title: String
-    let apps: [App]
 }
