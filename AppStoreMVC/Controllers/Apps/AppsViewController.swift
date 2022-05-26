@@ -11,7 +11,14 @@ class AppsViewController: BaseTabHostViewController {
 
     private let cellId = "\(AppsGroupCell.self)"
     private let headerId = "\(AppsHeaderReusableView.self)"
-    private var dataSource = [String: [String]]() {
+    private var headersDataSource = [HeaderModel]() {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    private var dataSource = [AppsGroupModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -47,12 +54,7 @@ class AppsViewController: BaseTabHostViewController {
     private func setup() {
         
         setupCollectionView()
-        dataSource = [
-            "Top Free Apps": ["Facebook", "Twitter", "Instagram", "WhatsApp", "lululemon", "Amazon", "Dropbox", "Notefy"],
-            "Top Paid Apps": ["Adobe Premiure", "Final Cut Pro", "Adobe Photoshop", "CameraX", "Netflix", "Spotify"],
-            "Top Games": ["Clash Royale", "Pokemon Go", "Paterned", "Mario Kart", "Stumble Guys", "Barberian Merge"],
-            "Most downloaded": ["Microsoft Authenticator", "Facebook", "Outlook", "lululemon", "Spotify"],
-        ]
+        prepareDataSource()
     }
 }
 
@@ -84,12 +86,13 @@ extension AppsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return dataSource.keys.count
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsHeaderReusableView
+        header.configure(headers: headersDataSource)
         return header
     }
     
@@ -101,8 +104,7 @@ extension AppsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
-        cell.configure(groupTitle: Array(dataSource.keys)[indexPath.row],
-                       dataSource: dataSource[Array(dataSource.keys)[indexPath.row]] ?? [])
+        cell.configure(with: dataSource[indexPath.row])
         return cell
     }
 }
@@ -116,5 +118,36 @@ extension AppsViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return .init(width: view.frame.width, height: 390)
+    }
+}
+
+// MARK: - Helper functions
+private extension AppsViewController {
+    
+    func prepareDataSource() {
+        
+        Task {
+            do {
+                headersDataSource = try await ITunesService.shared.fetchHeaders()
+                async let topApps =  ITunesService.shared.fetchTopApps()
+                async let topProductivityApps = ITunesService.shared.fetchTopProductivityApps()
+                async let topUtilityApps =  ITunesService.shared.fetchTopUtilityApps()
+                
+                let resultDataSource = [
+                    AppsGroupModel(title: "Top Apps", apps: try await topApps.results),
+                    AppsGroupModel(title: "Top Productivity apps", apps: try await topProductivityApps.results),
+                    AppsGroupModel(title: "Top Utility apps", apps: try await topUtilityApps.results),
+                ]
+                updateCollectionViewDataSource(withResult: resultDataSource)
+            } catch {
+                handleError(error: error)
+            }
+        }
+    }
+    
+    
+    func updateCollectionViewDataSource(withResult results: [AppsGroupModel]) {
+        
+        self.dataSource = results
     }
 }

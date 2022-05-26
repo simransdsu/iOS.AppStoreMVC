@@ -83,7 +83,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(withData data: APIResult) {
+    func configure(withData data: AppModel) {
         nameLabel.text = data.trackName
         categoryLabel.text = data.primaryGenreName
         ratingsLabel.text = data.formattedPrice

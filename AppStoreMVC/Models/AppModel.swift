@@ -1,18 +1,13 @@
 //
-//  SearchResult.swift
+//  App.swift
 //  AppStoreMVC
 //
-//  Created by Simran Preet Singh Narang on 2022-05-09.
+//  Created by Simran Preet Narang on 2022-05-26.
 //
 
 import Foundation
 
-struct SearchResult: Decodable {
-    let resultCount: Int
-    let results: [APIResult]
-}
-
-struct APIResult: Decodable {
+struct AppModel: Decodable {
     
     let screenshotUrls: [String]
     let artworkUrl512: String
