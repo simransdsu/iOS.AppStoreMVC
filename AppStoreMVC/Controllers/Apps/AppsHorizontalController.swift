@@ -11,7 +11,7 @@ class AppsHorizontalController: UIViewController {
     
 
     private let cellId = "\(AppRowCell.self)"
-    var dataSource = [String]() {
+    var dataSource = [APIResult]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -48,7 +48,6 @@ class AppsHorizontalController: UIViewController {
     private func setup() {
         
         setupCollectionView()
-//        dataSource.append(contentsOf: ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"])
     }
 }
 
@@ -86,7 +85,7 @@ extension AppsHorizontalController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
-        cell.nameLabel.text = dataSource[indexPath.row]
+        cell.configure(with: dataSource[indexPath.row])
         return cell
     }
 }

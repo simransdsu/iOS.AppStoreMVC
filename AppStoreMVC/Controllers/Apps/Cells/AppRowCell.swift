@@ -11,7 +11,7 @@ class AppRowCell: UICollectionViewCell {
     
     let appIconImageView: UIImageView = {
         let iv = UIImageView()
-        iv.backgroundColor = .systemRed
+        iv.backgroundColor = .systemGray5
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.layer.cornerRadius = 10
         iv.layer.masksToBounds = true
@@ -23,7 +23,7 @@ class AppRowCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel(text: "App Name", font: .boldSystemFont(ofSize: 17))
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -64,6 +64,13 @@ class AppRowCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with app: APIResult) {
+        
+        appIconImageView.sd_setImage(with: URL(string: app.artworkUrl512))
+        nameLabel.text = app.trackName
+        categoryLabel.text = app.primaryGenreName
     }
     
     private func layout() {
