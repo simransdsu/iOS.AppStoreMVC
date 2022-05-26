@@ -47,7 +47,7 @@ class AppsViewController: BaseTabHostViewController {
     private func setup() {
         
         setupCollectionView()
-        fetchITunesApps()
+        prepareDataSource()
     }
 }
 
@@ -116,7 +116,7 @@ extension AppsViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Helper functions
 private extension AppsViewController {
     
-    func fetchITunesApps() {
+    func prepareDataSource() {
         
         Task {
             do {
