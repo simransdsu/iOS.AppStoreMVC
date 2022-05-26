@@ -66,7 +66,7 @@ class AppRowCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with app: APIResult) {
+    func configure(with app: App) {
         
         appIconImageView.sd_setImage(with: URL(string: app.artworkUrl512))
         nameLabel.text = app.trackName

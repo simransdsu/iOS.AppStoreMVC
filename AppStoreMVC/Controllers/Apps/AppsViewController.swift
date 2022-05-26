@@ -146,5 +146,5 @@ private extension AppsViewController {
 
 struct AppsGroup: Decodable {
     let title: String
-    let apps: [APIResult]
+    let apps: [App]
 }
