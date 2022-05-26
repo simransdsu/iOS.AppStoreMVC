@@ -20,12 +20,13 @@ class AppsHorizontalController: UIViewController {
     }
     
     private var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = HorizontalSnappingController()
         flowLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.decelerationRate = .fast
         return collectionView
     }()
     
@@ -93,6 +94,7 @@ extension AppsHorizontalController: UICollectionViewDataSource {
 
 // MARK: - CollectionView Delegate Flow Layout
 extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

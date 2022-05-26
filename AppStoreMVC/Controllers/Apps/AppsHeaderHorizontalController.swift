@@ -21,12 +21,13 @@ class AppsHeaderHorizontalContainer: UIViewController {
     }
     
     private var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = HorizontalSnappingController()
         flowLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.decelerationRate = .fast
         return collectionView
     }()
     
@@ -107,6 +108,6 @@ extension AppsHeaderHorizontalContainer: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        return .init(width: view.frame.width - 42, height: 275)
+        return .init(width: view.frame.width - 48, height: 275)
     }
 }
