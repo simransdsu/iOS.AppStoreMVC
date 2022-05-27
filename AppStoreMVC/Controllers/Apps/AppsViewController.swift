@@ -104,7 +104,14 @@ extension AppsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
-        cell.configure(with: dataSource[indexPath.row])
+        cell.configure(with: dataSource[indexPath.row]) { [weak self] app in
+            
+            guard let self = self else { return }
+            
+            let appDetailsViewController = AppDetailsViewController()
+            appDetailsViewController.route(from: self, withData: app, navgiationStyle: .sheetWithNavigationController)
+        }
+        
         return cell
     }
 }

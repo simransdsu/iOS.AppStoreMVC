@@ -11,13 +11,15 @@ class AppsHorizontalController: UIViewController {
     
 
     private let cellId = "\(AppRowCell.self)"
-    var dataSource = [AppModel]() {
+    public var dataSource = [AppModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
             }
         }
     }
+    
+    public var onCellTap: ((AppModel) -> Void)? = nil
     
     private var collectionView: UICollectionView = {
         let flowLayout = HorizontalSnappingController()
@@ -88,6 +90,17 @@ extension AppsHorizontalController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
         cell.configure(with: dataSource[indexPath.row])
         return cell
+    }
+}
+
+
+// MARK: - CollectionView Delegate
+extension AppsHorizontalController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let appModel = dataSource[indexPath.row]
+        onCellTap?(appModel)
     }
 }
 

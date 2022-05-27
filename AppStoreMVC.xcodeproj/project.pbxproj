@@ -30,6 +30,8 @@
 		49942B8728284AD900830D3F /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49942B8628284AD900830D3F /* VerticalStackView.swift */; };
 		499C313D28401CEB0004FA97 /* AppsGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C313C28401CEB0004FA97 /* AppsGroupModel.swift */; };
 		499C313F28403E880004FA97 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C313E28403E880004FA97 /* HorizontalSnappingController.swift */; };
+		499C3142284072F30004FA97 /* AppDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C3141284072F30004FA97 /* AppDetailsViewController.swift */; };
+		499C3144284073990004FA97 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C3143284073990004FA97 /* UIViewController+Extensions.swift */; };
 		49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */; };
 		49E5E9BB28295ADA00489E83 /* SearchAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5E9BA28295ADA00489E83 /* SearchAPIModel.swift */; };
 		49E5E9BD28295CEB00489E83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5E9BC28295CEB00489E83 /* NetworkManager.swift */; };
@@ -63,6 +65,8 @@
 		49942B8628284AD900830D3F /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		499C313C28401CEB0004FA97 /* AppsGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupModel.swift; sourceTree = "<group>"; };
 		499C313E28403E880004FA97 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
+		499C3141284072F30004FA97 /* AppDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsViewController.swift; sourceTree = "<group>"; };
+		499C3143284073990004FA97 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabHostViewController.swift; sourceTree = "<group>"; };
 		49E5E9BA28295ADA00489E83 /* SearchAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIModel.swift; sourceTree = "<group>"; };
 		49E5E9BC28295CEB00489E83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			children = (
 				49942B7D2828341C00830D3F /* Search */,
 				49942B7C2828341800830D3F /* Apps */,
+				499C3140284072E00004FA97 /* AppDetails */,
 				49942B7B2828341100830D3F /* Today */,
 				49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */,
 				494EF23A2788988100C3A18C /* MainTabBarViewController.swift */,
@@ -213,6 +218,7 @@
 				49942B842828469A00830D3F /* UIView+Extension.swift */,
 				4904819C283BE21D009F4F3E /* UILabel+Extensions.swift */,
 				49942B8628284AD900830D3F /* VerticalStackView.swift */,
+				499C3143284073990004FA97 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +229,14 @@
 				49942B822828467800830D3F /* Extensions */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		499C3140284072E00004FA97 /* AppDetails */ = {
+			isa = PBXGroup;
+			children = (
+				499C3141284072F30004FA97 /* AppDetailsViewController.swift */,
+			);
+			path = AppDetails;
 			sourceTree = "<group>";
 		};
 		49E5E9B928295AC500489E83 /* Models */ = {
@@ -315,7 +329,9 @@
 			files = (
 				49E5E9BD28295CEB00489E83 /* NetworkManager.swift in Sources */,
 				499C313D28401CEB0004FA97 /* AppsGroupModel.swift in Sources */,
+				499C3144284073990004FA97 /* UIViewController+Extensions.swift in Sources */,
 				49E5E9BB28295ADA00489E83 /* SearchAPIModel.swift in Sources */,
+				499C3142284072F30004FA97 /* AppDetailsViewController.swift in Sources */,
 				494EF2552788999400C3A18C /* SearchViewController.swift in Sources */,
 				494EF2512788998300C3A18C /* TodayViewController.swift in Sources */,
 				494EF2532788998B00C3A18C /* AppsViewController.swift in Sources */,

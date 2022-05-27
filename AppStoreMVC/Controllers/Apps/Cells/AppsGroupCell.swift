@@ -12,7 +12,7 @@ class AppsGroupCell: UICollectionViewCell {
     
     let titleLabel = UILabel(text: "App Section", font: .boldSystemFont(ofSize: 28))
     let horizontalController = AppsHorizontalController()
-    
+    var onTap: ((AppModel) -> Void)? = nil
     
     override init(frame: CGRect) {
         
@@ -27,9 +27,10 @@ class AppsGroupCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with appGroup: AppsGroupModel) {
+    func configure(with appGroup: AppsGroupModel, onTap: ((AppModel) -> Void)? = nil) {
         titleLabel.text = appGroup.title
         horizontalController.dataSource = appGroup.apps
+        horizontalController.onCellTap = onTap
     }
     
     private func layout() {
@@ -54,7 +55,6 @@ class AppsGroupCell: UICollectionViewCell {
     }
     
     private func setup() {
-        
-        
+
     }
 }
