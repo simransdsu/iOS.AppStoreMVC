@@ -87,7 +87,9 @@ extension UIViewController {
     }
     
     // Route to the ViewController on which it is called
-    func route(from viewController: UIViewController, navigationStyle: NavigationStyle = .push) {
+    func route(from viewController: UIViewController, navigationStyle: NavigationStyle = .push, largeTitle: Bool = false) {
+        
+        self.navigationItem.largeTitleDisplayMode = largeTitle ? .always : .never
         
         switch navigationStyle {
         case .sheet:
