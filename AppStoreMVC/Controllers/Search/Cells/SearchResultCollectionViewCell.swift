@@ -110,7 +110,7 @@ private extension SearchResultCollectionViewCell {
     func setupHorizontalStackViewForAppIconImageLabelsAndGetButton() {
         
         // StackView for title, category and price
-        let labelsStackView = VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel])
+        let labelsStackView = VStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel])
         labelsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         // StackView for the AppIcon, labels, and get button
@@ -127,7 +127,7 @@ private extension SearchResultCollectionViewCell {
         screenShotsStackView.spacing = 10
         
         // StackView that containts the top view and the screenshots
-        let overAllStackView = VerticalStackView(arrangedSubviews: [infoStackView, screenShotsStackView])
+        let overAllStackView = VStackView(arrangedSubviews: [infoStackView, screenShotsStackView])
         overAllStackView.spacing = 12
         
         addSubview(overAllStackView)

@@ -48,9 +48,7 @@ class AppsHeaderHorizontalCell: UICollectionViewCell {
     
     private func layout() {
         
-        let verticalStackView = UIStackView(arrangedSubviews: [title, subtitle, imageView])
-        verticalStackView.axis = .vertical
-        verticalStackView.spacing = 12
+        let verticalStackView = VStackView(arrangedSubviews: [title, subtitle, imageView], spacing: 12)
         
         addSubview(verticalStackView)
         verticalStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 12, bottom: 12, right: 12))

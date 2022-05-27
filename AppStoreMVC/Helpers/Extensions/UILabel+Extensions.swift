@@ -10,12 +10,12 @@ import UIKit
 
 extension UILabel {
     
-    convenience init(text: String, font: UIFont) {
+    convenience init(text: String, font: UIFont, numberOfLines: Int = 0) {
         
         self.init(frame: .zero)
         self.text = text
         self.font = font
-        translatesAutoresizingMaskIntoConstraints = false
-        numberOfLines = 0
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.numberOfLines = numberOfLines
     }
 }

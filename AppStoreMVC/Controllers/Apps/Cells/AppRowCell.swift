@@ -91,7 +91,7 @@ class AppRowCell: UICollectionViewCell {
     private func setupHorizontalStackViewForAppIconImageLabelsAndGetButton() {
         
         // StackView for title, category and price
-        let labelsStackView = VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel])
+        let labelsStackView = VStackView(arrangedSubviews: [nameLabel, categoryLabel])
         labelsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         // StackView for the AppIcon, labels, and get button
@@ -103,7 +103,7 @@ class AppRowCell: UICollectionViewCell {
         addSubview(infoStackView)
         
         // StackView that containts the top view and the screenshots
-        let overAllStackView = VerticalStackView(arrangedSubviews: [infoStackView])
+        let overAllStackView = VStackView(arrangedSubviews: [infoStackView])
         
         addSubview(overAllStackView)
         overAllStackView.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
