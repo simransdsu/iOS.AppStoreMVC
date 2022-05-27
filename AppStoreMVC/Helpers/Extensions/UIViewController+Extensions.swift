@@ -87,12 +87,18 @@ extension UIViewController {
     }
     
     // Route to the ViewController on which it is called
-    func route(from viewController: UIViewController, navgiationStyle: NavigationStyle = .push) {
+    func route(from viewController: UIViewController, navigationStyle: NavigationStyle = .push) {
         
-        switch navgiationStyle {
+        switch navigationStyle {
         case .sheet:
             viewController.present(self, animated: true)
-        case .sheetWithNavigationController:
+        case .sheetWithNavigation:
+            viewController.present(UINavigationController(rootViewController: self), animated: true)
+        case .fullScreen:
+            self.modalPresentationStyle = .fullScreen
+            viewController.present(self, animated: true)
+        case .fullScreenWithNavigation:
+            self.modalPresentationStyle = .fullScreen
             viewController.present(UINavigationController(rootViewController: self), animated: true)
         case .push:
             viewController.navigationController?.pushViewController(self, animated: true)
@@ -101,7 +107,9 @@ extension UIViewController {
     
     enum NavigationStyle {
         case sheet
-        case sheetWithNavigationController
+        case sheetWithNavigation
         case push
+        case fullScreen
+        case fullScreenWithNavigation
     }
 }

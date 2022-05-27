@@ -35,9 +35,9 @@ class AppDetailsViewController: UIViewController {
 // MARK: Navigation
 extension AppDetailsViewController {
     
-    func route(from viewController: UIViewController, withData data: AppModel, navgiationStyle: NavigationStyle = .push) {
+    func route(from viewController: UIViewController, withData data: AppModel, navigationStyle: NavigationStyle = .push) {
         
         self.appModel = data
-        super.route(from: viewController, navgiationStyle: navgiationStyle)
+        super.route(from: viewController, navigationStyle: navigationStyle)
     }
 }

@@ -109,7 +109,7 @@ extension AppsViewController: UICollectionViewDataSource {
             guard let self = self else { return }
             
             let appDetailsViewController = AppDetailsViewController()
-            appDetailsViewController.route(from: self, withData: app, navgiationStyle: .sheetWithNavigationController)
+            appDetailsViewController.route(from: self, withData: app)
         }
         
         return cell
