@@ -114,9 +114,9 @@ extension AppDetailsViewController: UICollectionViewDelegateFlowLayout {
 // MARK: Navigation
 extension AppDetailsViewController {
     
-    func route(from viewController: UIViewController, withData data: AppModel, navigationStyle: NavigationStyle = .push, largeTitle: Bool = false) {
+    func route(from viewController: UIViewController, withData data: AppModel, navigationStyle: NavigationStyle = .push()) {
         
         self.appModel = data
-        super.route(from: viewController, navigationStyle: navigationStyle, largeTitle: largeTitle)
+        super.route(from: viewController, navigationStyle: navigationStyle)
     }
 }

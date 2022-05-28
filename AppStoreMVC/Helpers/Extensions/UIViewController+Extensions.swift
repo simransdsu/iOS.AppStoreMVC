@@ -87,31 +87,25 @@ extension UIViewController {
     }
     
     // Route to the ViewController on which it is called
-    func route(from viewController: UIViewController, navigationStyle: NavigationStyle = .push, largeTitle: Bool = false) {
-        
-        self.navigationItem.largeTitleDisplayMode = largeTitle ? .always : .never
+    func route(from viewController: UIViewController, navigationStyle: NavigationStyle = .push()) {
         
         switch navigationStyle {
-        case .sheet:
-            viewController.present(self, animated: true)
-        case .sheetWithNavigation:
-            viewController.present(UINavigationController(rootViewController: self), animated: true)
-        case .fullScreen:
+        case .sheet(let withNavigation):
+            viewController.present(withNavigation ? UINavigationController(rootViewController: self) : self, animated: true)
+        
+        case .fullScreen(let withNavigation):
             self.modalPresentationStyle = .fullScreen
-            viewController.present(self, animated: true)
-        case .fullScreenWithNavigation:
-            self.modalPresentationStyle = .fullScreen
-            viewController.present(UINavigationController(rootViewController: self), animated: true)
-        case .push:
+            viewController.present(withNavigation ? UINavigationController(rootViewController: self) : self, animated: true)
+            
+        case .push(let largeTitle):
+            self.navigationItem.largeTitleDisplayMode = largeTitle ? .always : .never
             viewController.navigationController?.pushViewController(self, animated: true)
         }
     }
     
     enum NavigationStyle {
-        case sheet
-        case sheetWithNavigation
-        case push
-        case fullScreen
-        case fullScreenWithNavigation
+        case sheet(withNavigation: Bool = false)
+        case push(largeTitle: Bool = false)
+        case fullScreen(withNavigation: Bool = false)
     }
 }
