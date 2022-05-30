@@ -43,6 +43,8 @@
 		499C3142284072F30004FA97 /* AppDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C3141284072F30004FA97 /* AppDetailsViewController.swift */; };
 		499C3144284073990004FA97 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C3143284073990004FA97 /* UIViewController+Extensions.swift */; };
 		49C0399E28451755009A8517 /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0399D28451755009A8517 /* PreviewCell.swift */; };
+		49C039A128452579009A8517 /* PreviewScreenShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C039A028452579009A8517 /* PreviewScreenShotCell.swift */; };
+		49C039A328452598009A8517 /* PreviewScreenshortsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C039A228452598009A8517 /* PreviewScreenshortsController.swift */; };
 		49D103842788A5EE00E86E06 /* BaseTabHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */; };
 		49E5E9BB28295ADA00489E83 /* SearchAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5E9BA28295ADA00489E83 /* SearchAPIModel.swift */; };
 		49E5E9BD28295CEB00489E83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5E9BC28295CEB00489E83 /* NetworkManager.swift */; };
@@ -89,6 +91,8 @@
 		499C3141284072F30004FA97 /* AppDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsViewController.swift; sourceTree = "<group>"; };
 		499C3143284073990004FA97 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		49C0399D28451755009A8517 /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
+		49C039A028452579009A8517 /* PreviewScreenShotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenShotCell.swift; sourceTree = "<group>"; };
+		49C039A228452598009A8517 /* PreviewScreenshortsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenshortsController.swift; sourceTree = "<group>"; };
 		49D103832788A5EE00E86E06 /* BaseTabHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabHostViewController.swift; sourceTree = "<group>"; };
 		49E5E9BA28295ADA00489E83 /* SearchAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIModel.swift; sourceTree = "<group>"; };
 		49E5E9BC28295CEB00489E83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			children = (
 				490FBED828411FC400C6E8E9 /* AppDetailCell.swift */,
 				49C0399D28451755009A8517 /* PreviewCell.swift */,
+				49C039A028452579009A8517 /* PreviewScreenShotCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 			children = (
 				490FBED728411FB700C6E8E9 /* Cells */,
 				499C3141284072F30004FA97 /* AppDetailsViewController.swift */,
+				49C039A228452598009A8517 /* PreviewScreenshortsController.swift */,
 			);
 			path = AppDetails;
 			sourceTree = "<group>";
@@ -380,11 +386,13 @@
 				49942B852828469A00830D3F /* UIView+Extension.swift in Sources */,
 				4904819D283BE21D009F4F3E /* UILabel+Extensions.swift in Sources */,
 				4904819F283C6F61009F4F3E /* AppsHorizontalController.swift in Sources */,
+				49C039A128452579009A8517 /* PreviewScreenShotCell.swift in Sources */,
 				496DD1C328447D2D007685F7 /* Encodable+Extensions.swift in Sources */,
 				496DD1BD28447D2D007685F7 /* Date+Extensions.swift in Sources */,
 				49942B8128283A5A00830D3F /* SearchResultCollectionViewCell.swift in Sources */,
 				4904819B283BE0CD009F4F3E /* AppsGroupCell.swift in Sources */,
 				495FDD00283E82E000BBB512 /* AppsHeaderHorizontalController.swift in Sources */,
+				49C039A328452598009A8517 /* PreviewScreenshortsController.swift in Sources */,
 				494EF23B2788988100C3A18C /* MainTabBarViewController.swift in Sources */,
 				495FDD06283FBBC800BBB512 /* AppModel.swift in Sources */,
 				49E5E9BF28295DAB00489E83 /* ITunesService.swift in Sources */,
