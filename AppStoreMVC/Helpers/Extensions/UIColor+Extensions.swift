@@ -1,20 +1,20 @@
 import UIKit
 
 extension UIColor {
-
+    
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat = 1.0) {
         
         self.init(red: r/255, green: g/255, blue: b/255, alpha: alpha)
     }
     
     
-    public convenience init?(hexString: String) {
-        
+    public convenience init?(hex: String) {
         let r, g, b, a: CGFloat
         
-        if hexString.hasPrefix("#") {
-            let start = hexString.index(hexString.startIndex, offsetBy: 1)
-            let hexColor = String(hexString[start...])
+        if hex.hasPrefix("#") {
+            let start = hex.index(hex.startIndex, offsetBy: 1)
+            let hexString = String(hex[start...])
+            let hexColor = hexString.count == 6 ? hexString + "ff" : hexString
             
             if hexColor.count == 8 {
                 let scanner = Scanner(string: hexColor)
