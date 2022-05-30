@@ -50,8 +50,7 @@ class ITunesService {
         }
         
         let responseData = try await NetworkManager.shared.fetch(withUrl: url)
-        let jsonDecoder = JSONDecoder()
-        let response = try jsonDecoder.decode(T.self, from: responseData)
+        let response = try responseData.toObject(ofType: T.self)
         return response
     }
 }

@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+// Quick access to UIView properties
 extension UIViewController {
     
     /// Background color of the view in the view controllerr
@@ -85,6 +87,11 @@ extension UIViewController {
             return view.bounds.size
         }
     }
+}
+
+
+// An easy routing mechanism.
+extension UIViewController {
     
     // Route to the ViewController on which it is called
     func route(from viewController: UIViewController, navigationStyle: NavigationStyle = .push()) {
