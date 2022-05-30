@@ -98,12 +98,12 @@ extension AppDetailsViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let dummyCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
+        let detailCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
         if let model = appModel {
-            dummyCell.config(model: model)
-            dummyCell.layoutIfNeeded()
+            detailCell.config(model: model)
+            detailCell.layoutIfNeeded()
         }
-        let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
+        let estimatedSize = detailCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
         return .init(width: estimatedSize.width, height: estimatedSize.height)
     }
 }
