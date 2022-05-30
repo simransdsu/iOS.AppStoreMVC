@@ -10,20 +10,18 @@ import UIKit
 
 class HorizontalSnappingController: UICollectionViewFlowLayout {
     
-//    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-//
-//        guard let collectionView = self.collectionView else {
-//            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
-//        }
-//
-//        let itemWidth = collectionView.frame.width - 48 // This 48 comes from AppsHorizontalController's `sizeForItemAt`
-//
-//        let pageNumber = collectionView.contentOffset.x / itemWidth
-//
-//        print(pageNumber)
-//
-//        return CGPoint(x: pageNumber * itemWidth, y: 0)
-//    }
+    private var itemWidth: CGFloat
+    
+    init(withWidth width: CGFloat, widthOffSet offSet: CGFloat) {
+        itemWidth = width - offSet
+        super.init()
+        scrollDirection = .horizontal
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // https://stackoverflow.com/a/50155920
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
@@ -31,7 +29,6 @@ class HorizontalSnappingController: UICollectionViewFlowLayout {
         guard let collectionView = collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
         let parent = super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
 
-        let itemWidth = collectionView.frame.width - 48 // This 48 comes from AppsHorizontalController's `sizeForItemAt`
         let itemSpace = itemWidth + minimumInteritemSpacing
         var pageNumber = round(collectionView.contentOffset.x / itemSpace)
 

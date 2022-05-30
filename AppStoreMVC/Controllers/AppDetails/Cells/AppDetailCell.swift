@@ -66,12 +66,9 @@ class AppDetailCell: UICollectionViewCell {
     
     private func style() {
         
-        backgroundColor = .systemGray6
     }
     
     private func setup() {
-        
-        appIconImageView.backgroundColor = .systemBlue
     }
     
     public func config(model: AppModel) {

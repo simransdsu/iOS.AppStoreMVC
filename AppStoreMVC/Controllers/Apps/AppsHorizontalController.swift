@@ -21,9 +21,8 @@ class AppsHorizontalController: UIViewController {
     
     public var onCellTap: ((AppModel) -> Void)? = nil
     
-    private var collectionView: UICollectionView = {
-        let flowLayout = HorizontalSnappingController()
-        flowLayout.scrollDirection = .horizontal
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = HorizontalSnappingController(withWidth: view.frame.width, widthOffSet: 48)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground

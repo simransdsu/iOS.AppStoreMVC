@@ -20,8 +20,8 @@ class AppsHeaderHorizontalContainer: UIViewController {
         }
     }
     
-    private var collectionView: UICollectionView = {
-        let flowLayout = HorizontalSnappingController()
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = HorizontalSnappingController(withWidth: width, widthOffSet: 48)
         flowLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false

@@ -12,6 +12,7 @@ import UIKit
 class AppDetailsViewController: UIViewController {
     
     private let cellId = "\(AppDetailCell.self)"
+    private let previewCellId = "\(PreviewCell.self)"
     
     private var appModel: AppModel? = nil {
         didSet {
@@ -67,6 +68,7 @@ private extension AppDetailsViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: previewCellId)
     }
 }
 
@@ -76,17 +78,33 @@ extension AppDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 1
+        return 2
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppDetailCell
-        if let model = appModel {
-            cell.config(model: model)
+        let row = indexPath.row
+        
+        
+        if row == 0 {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppDetailCell
+            if let model = appModel {
+                cell.config(model: model)
+            }
+            
+            return cell
+        } else if row == 1 {
+            
+            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: previewCellId, for: indexPath) as! PreviewCell
+            if let model = appModel {
+                cell.config(model: model)
+            }
+            return cell
         }
-        return cell
+        
+        return UICollectionViewCell()
     }
 }
 
@@ -98,13 +116,17 @@ extension AppDetailsViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let detailCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
-        if let model = appModel {
-            detailCell.config(model: model)
-            detailCell.layoutIfNeeded()
+        if indexPath.row == 0 {
+            let detailCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
+            if let model = appModel {
+                detailCell.config(model: model)
+                detailCell.layoutIfNeeded()
+            }
+            let estimatedSize = detailCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
+            return .init(width: estimatedSize.width, height: estimatedSize.height)
+        } else {
+            return .init(width: view.frame.width, height: 500)
         }
-        let estimatedSize = detailCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
-        return .init(width: estimatedSize.width, height: estimatedSize.height)
     }
 }
 
