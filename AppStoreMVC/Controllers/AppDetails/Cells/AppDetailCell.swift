@@ -73,4 +73,13 @@ class AppDetailCell: UICollectionViewCell {
         
         appIconImageView.backgroundColor = .systemBlue
     }
+    
+    public func config(model: AppModel) {
+        
+        appIconImageView.sd_setImage(with: URL(string: model.artworkUrl512))
+        nameLabel.text = model.trackName
+        releaseNotesLabel.text = model.releaseNotes
+        priceButton.setTitle(model.formattedPrice, for: .normal)
+        
+    }
 }

@@ -11,16 +11,7 @@ import UIKit
 
 class AppDetailsViewController: UIViewController {
     
-    // TODO: Replace with your cell
     private let cellId = "\(AppDetailCell.self)"
-    // TODO: Replace with your data source model
-    private var dataSource = [String](arrayLiteral: "", "", "") {
-        didSet {
-            DispatchQueue.main.async { [weak self] in
-                self?.collectionView.reloadData()
-            }
-        }
-    }
     
     private var appModel: AppModel? = nil {
         didSet {
@@ -75,7 +66,6 @@ private extension AppDetailsViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        // TODO: Replace with your cell
         collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: cellId)
     }
 }
@@ -86,13 +76,16 @@ extension AppDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return dataSource.count
+        return 1
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // TODO: Replace with your cell dequing logic
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppDetailCell
+        if let model = appModel {
+            cell.config(model: model)
+        }
         return cell
     }
 }

@@ -244,18 +244,18 @@
 			isa = PBXGroup;
 			children = (
 				496DD1B928447D2D007685F7 /* AlertExtensions.swift */,
+				49942B8628284AD900830D3F /* CustomStackViews.swift */,
 				496DD1BB28447D2D007685F7 /* Encodable+Extensions.swift */,
-				496DD1B728447D2D007685F7 /* UIColor+Extensions.swift */,
 				496DD1BA28447D2D007685F7 /* Data+Extensions.swift */,
 				496DD1B528447D2D007685F7 /* Date+Extensions.swift */,
 				496DD1B828447D2D007685F7 /* String+Extensions.swift */,
+				496DD1B728447D2D007685F7 /* UIColor+Extensions.swift */,
+				490FBEDA2841217700C6E8E9 /* UIImageView+Extensions.swift */,
+				4904819C283BE21D009F4F3E /* UILabel+Extensions.swift */,
 				496DD1B628447D2D007685F7 /* UINavigationItem+ImageOverNavigationBar+Extensions.swift */,
 				496DD1B428447D2D007685F7 /* UIView+FeedbackAnimations.swift */,
 				49942B842828469A00830D3F /* UIView+Extension.swift */,
-				4904819C283BE21D009F4F3E /* UILabel+Extensions.swift */,
-				49942B8628284AD900830D3F /* CustomStackViews.swift */,
 				499C3143284073990004FA97 /* UIViewController+Extensions.swift */,
-				490FBEDA2841217700C6E8E9 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
