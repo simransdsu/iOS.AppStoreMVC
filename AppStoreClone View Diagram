@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-31T20:46:51.076Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36" etag="RBXghd0iRYUHLuML-vp0" version="18.2.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-31T21:06:54.701Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36" etag="phWFXqjZZorPtEOeU68T" version="18.2.0" type="github" pages="2">
   <diagram id="aRfZw2ZQOy_6v5o-BfR-" name="MainTabbarViewController">
     <mxGraphModel dx="556" dy="346" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -33,6 +33,74 @@
         </mxCell>
         <mxCell id="5wuQ-_rNjGmphMtMoZMJ-7" value="TodayViewController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="500" y="70" width="120" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="5PJXJ1e8nfcrQr50tt-k" name="AppsViewController">
+    <mxGraphModel dx="676" dy="421" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-1" value="AppsViewController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-1" target="2r1zz-R5DolyZH8pdZlz-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="150" as="sourcePoint" />
+            <mxPoint x="390" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=7;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-3" target="2r1zz-R5DolyZH8pdZlz-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=7;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-3" target="2r1zz-R5DolyZH8pdZlz-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-3" value="CollectionView" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="50" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=7;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-9" target="2r1zz-R5DolyZH8pdZlz-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-9" value="&lt;b style=&quot;font-size: 9px;&quot;&gt;AppsHeaderReusableView&lt;/b&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;:&lt;br&gt;&amp;nbsp;&lt;/span&gt;&lt;font style=&quot;font-size: 7px;&quot;&gt;UICollectionReusableView&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="90" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-11" target="2r1zz-R5DolyZH8pdZlz-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-11" value="&lt;font style=&quot;&quot;&gt;&lt;b style=&quot;font-size: 9px;&quot;&gt;AppsGroupCell&lt;/b&gt;&lt;font size=&quot;1&quot;&gt;:&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 7px;&quot;&gt;UICollectionViewCell&lt;/font&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-13" target="2r1zz-R5DolyZH8pdZlz-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-13" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;&lt;b&gt;AppsHeaderHorizontalContainer:&lt;br&gt;&lt;/b&gt;UIViewController&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="160" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-19" target="2r1zz-R5DolyZH8pdZlz-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-19" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;CollectionView&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="210" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-23" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;&lt;b&gt;AppsHorizontalHeaderCell&lt;/b&gt;: UICollectionViewCell&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="260" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-25" target="2r1zz-R5DolyZH8pdZlz-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-25" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;&lt;b&gt;AppsHorizontalController:&lt;br&gt;&lt;/b&gt;UIViewController&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="465" y="160" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;" edge="1" parent="1" source="2r1zz-R5DolyZH8pdZlz-27" target="2r1zz-R5DolyZH8pdZlz-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-27" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;CollectionView&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="465" y="210" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2r1zz-R5DolyZH8pdZlz-28" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;&lt;b&gt;AppRowCell&lt;/b&gt;: &lt;br&gt;UICollectionViewCell&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="465" y="260" width="160" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
