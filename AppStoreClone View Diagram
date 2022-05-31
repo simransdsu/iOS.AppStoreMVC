@@ -1,1 +1,40 @@
-<mxfile host="app.diagrams.net" modified="2022-05-31T20:40:01.709Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36" version="18.2.0" etag="ymeZZWCiSWsfG-Thfn03" type="github"><diagram id="aRfZw2ZQOy_6v5o-BfR-">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-05-31T20:46:51.076Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36" etag="RBXghd0iRYUHLuML-vp0" version="18.2.0" type="github">
+  <diagram id="aRfZw2ZQOy_6v5o-BfR-" name="MainTabbarViewController">
+    <mxGraphModel dx="556" dy="346" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5wuQ-_rNjGmphMtMoZMJ-1" value="MainTabbarViewController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="325" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5wuQ-_rNjGmphMtMoZMJ-2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="5wuQ-_rNjGmphMtMoZMJ-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="110" as="sourcePoint" />
+            <mxPoint x="280" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5wuQ-_rNjGmphMtMoZMJ-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.485;exitY=0.983;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="5wuQ-_rNjGmphMtMoZMJ-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="335" y="49.35483870967744" as="sourcePoint" />
+            <mxPoint x="422" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5wuQ-_rNjGmphMtMoZMJ-4" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="477" y="40" as="sourcePoint" />
+            <mxPoint x="560" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5wuQ-_rNjGmphMtMoZMJ-5" value="AppsViewController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="70" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="5wuQ-_rNjGmphMtMoZMJ-6" value="SearchViewController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="70" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="5wuQ-_rNjGmphMtMoZMJ-7" value="TodayViewController" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="70" width="120" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
