@@ -19,16 +19,16 @@ class MainTabBarViewController: UITabBarController {
         
         viewControllers = [
             UINavigationController(
-                rootViewController: TodayViewController(with: "Today", tabBarImage: UIImage(systemName: "doc.text.image"))
-            ),
-            
-            UINavigationController(
                 rootViewController: AppsViewController(with: "Apps", tabBarImage: UIImage(systemName: "square.3.stack.3d.top.filled"))
             ),
             
             UINavigationController(
                 rootViewController: SearchViewController(with: "Search", tabBarImage: UIImage(systemName: "magnifyingglass"))
-            )
+            ),
+            
+            UINavigationController(
+                rootViewController: TodayViewController(with: "Today", tabBarImage: UIImage(systemName: "doc.text.image"))
+            ),
         ]
     }
     

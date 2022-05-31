@@ -111,6 +111,13 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         
         return .init(width: view.frame.width, height: 350)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appModel = dataSource[indexPath.row]
+        let appDetailsVC = AppDetailsViewController()
+        appDetailsVC.route(from: self, withData: appModel)
+    }
 }
 
 
